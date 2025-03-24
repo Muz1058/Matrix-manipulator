@@ -1,0 +1,296 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	cout << "              *     *     *     *         Welcome to Reception System of        *     *     *     *      " << endl;
+	cout << "             * *   * *   * *   * *                                             * *   * *   * *   * *     " << endl;
+	cout << "              *     *     *     *            RESORT OF CENTRAL PUNJAB           *     *     *     *      " << endl;
+	cout << "     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << endl;
+	int employment_id;
+	int employment_id_1 = 844;
+	int employment_id_2 = 930;
+	int password;
+	int password_1 = 295;
+	int password_2 = 777;
+	do
+	{
+		cout << "Enter your Employee ID: ";
+		cin >> employment_id;
+		cout << endl;
+
+		cout << "Enter your Password: ";
+		cin >> password;
+		cout << "\n";
+
+		if (employment_id == employment_id_1 && password == password_1)
+		{
+			cout << "You are login with EMPLOYEE ID: " << employment_id_1 << endl;
+		}
+		else if (employment_id == employment_id_2 && password == password_2)
+		{
+			cout << "You are login with EMPLOYEE ID: " << employment_id_2 << endl;
+		}
+		else
+		{
+			cout << "\t\t\t*****INVALID ID OR PASSWORD*****\nPLEASE TRY AGAIN:" << endl;
+		}
+	} while (!((employment_id == employment_id_1 && password == password_1) || (employment_id == employment_id_2 && password == password_2)));
+	cout << "\n";
+	// Booked rooms=1
+	// Free rooms=0
+	int ground_floor_room[10] = { 0,1,0,1,1,0,1,1,1,0 };
+	int first_floor_room[10] = { 1,1,0,1,0,1,0,1,0,0 };
+	int second_floor_room[10] = { 0,0,1,0,1,0,0,1,1,0 };
+	cout << "The Total rooms in resort are 30:  " << endl;
+	cout << "Ground Floor: Room01, Room02, Room03, Room04, Room05,\n\t\ Room06, Room07, Room08, Room09, Room10" << endl;
+	cout << "First Floor: Room11, Room12, Room13, Room14, Room15,\n\t Room16, Room17, Room18, Room19, Room20" << endl;
+	cout << "Second Floor: Room21, Room22, Room23, Room24, Room25,\n\t Room26, Room27, Room28, Room29, Room30" << endl;
+	cout << endl;
+	char floor_choice;
+	cout << "Press 'G' to book rooms on GROUND FLOOR: " << endl;
+	cout << "Press 'F' to book rooms on FIRST FLOOR: " << endl;
+	cout << "Press 'S' to book rooms on SECOND FLOOR: " << endl;
+	cin >> floor_choice;
+
+	if (floor_choice == 'G' || floor_choice == 'g')
+	{
+		cout << "The information of rooms on GROUND FLOOR is: " << endl;
+		int count_booked;
+		int count_free;
+
+		do
+		{
+			count_booked = 0;
+			count_free = 0;
+
+			for (int i = 0; i < 10; i++)
+			{
+				if (ground_floor_room[i] == 1)
+				{
+					cout << "~>Room no." << i + 1 << " of GROUND FLOOR is already BOOKED!" << endl;
+					count_booked++;
+				}
+				else if (ground_floor_room[i] == 0)
+				{
+					cout << "~>Room no." << i + 1 << " of GROUND FLOOR is FREE!" << endl;
+					count_free++;
+				}
+			}
+			cout << "~>Available rooms on GROUND FLOOR: " << count_free << endl;
+			cout << "~>Already Booked rooms on GROUND FLOOR: " << count_booked << endl;
+			char booking_choice;
+			// To Book room=B
+			// to Exit=E
+			cout << "Press 'B' to Book rooms: " << endl;
+			cout << "Press 'E' to Exit: " << endl;
+			cin >> booking_choice;
+
+			if (booking_choice == 'B' || booking_choice == 'b')
+			{
+				int room_number;
+				cout << "Enter the Room number you want to Book: ";
+
+
+				cin >> room_number;
+				if (ground_floor_room[room_number - 1] == 0)
+				{
+					cout << "You Booked Room Number " << room_number << " Successfully!" << endl;
+					int{ ground_floor_room[room_number - 1] = 1 };
+				}
+				else
+				{
+					cout << "Room Number " << room_number << " is not Free!" << endl;
+					cout << "Please Book any other room: " << endl;
+				}
+
+				if (count_free != 0)
+				{
+					continue;
+				}
+				else
+				{
+					cout << "Sorry! No more Free rooms on Ground Floor!\n";
+					cout << "Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+					cout << "_____________________________________________________________________________" << endl;
+
+					return 1;
+				}
+				cout << endl;
+				cout << "Updated List of rooms on Ground Floor: " << endl;
+			}
+
+
+			else
+			{
+				cout << "Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+				cout << "_____________________________________________________________________________" << endl;
+
+				return 1;
+			}
+		} while (count_booked != 10);
+	}
+
+
+
+
+
+	else if (floor_choice == 'F' || floor_choice == 'f')
+	{
+		cout << "The information of rooms on FIRST FLOOR is: " << endl;
+		int count_booked;
+		int count_free;
+
+		do
+		{
+			count_booked = 0;
+			count_free = 0;
+
+			for (int i = 0; i < 10; i++)
+			{
+				if (first_floor_room[i] == 1)
+				{
+					cout << "~>Room no." << i + 1 << " of FIRST FLOOR is already BOOKED!" << endl;
+					count_booked++;
+				}
+				else if (first_floor_room[i] == 0)
+				{
+					cout << "~>Room no." << i + 1 << " of FIRST FLOOR is FREE!" << endl;
+					count_free++;
+				}
+			}
+			cout << "~>Available rooms on FIRST FLOOR: " << count_free << endl;
+			cout << "~>Already Booked rooms on FIRST FLOOR: " << count_booked << endl;
+			char booking_choice;
+			// To Book room=B
+			// to Exit=E
+			cout << "Press 'B' to Book rooms: " << endl;
+			cout << "Press 'E' to Exit: " << endl;
+			cin >> booking_choice;
+
+			if (booking_choice == 'B' || booking_choice == 'b')
+			{
+				int room_number;
+				cout << "Enter the Room number you want to Book: ";
+
+
+				cin >> room_number;
+				if (first_floor_room[room_number - 1] == 0)
+				{
+					cout << "You Booked Room Number " << room_number << " Successfully!" << endl;
+					int{ first_floor_room[room_number - 1] = 1 };
+				}
+				else
+				{
+					cout << "Room Number " << room_number << " is not Free!" << endl;
+					cout << "Please Book any other room: " << endl;
+				}
+
+				if (count_free != 0)
+				{
+					continue;
+				}
+				else
+				{
+					cout << "Sorry! No more Free rooms on First Floor!\n";
+					cout << "  Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+					cout << "_____________________________________________________________________________" << endl;
+
+					return 1;
+				}
+				cout << endl;
+				cout << "Updated List of rooms on First Floor: " << endl;
+			}
+
+
+			else
+			{
+				cout << "Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+				cout << "_____________________________________________________________________________" << endl;
+
+				return 1;
+			}
+		} while (count_booked != 10);
+	}
+
+
+
+	else if (floor_choice == 'S' || floor_choice == 's') {
+
+		cout << "The information of rooms on SECOND FLOOR is: " << endl;
+		int count_booked;
+		int count_free;
+
+		do
+		{
+			count_booked = 0;
+			count_free = 0;
+
+			for (int i = 0; i < 10; i++)
+			{
+				if (second_floor_room[i] == 1)
+				{
+					cout << "~>Room no." << i + 1 << " of SECOND FLOOR is already BOOKED!" << endl;
+					count_booked++;
+				}
+				else if (second_floor_room[i] == 0)
+				{
+					cout << "~>Room no." << i + 1 << " of SECOND FLOOR is FREE!" << endl;
+					count_free++;
+				}
+			}
+			cout << "~>Available rooms on SECOND FLOOR: " << count_free << endl;
+			cout << "~>Already Booked rooms on SECOND FLOOR: " << count_booked << endl;
+			char booking_choice;
+			// To Book room=B
+			// to Exit=E
+			cout << "Press 'B' to Book rooms: " << endl;
+			cout << "Press 'E' to Exit: " << endl;
+			cin >> booking_choice;
+
+			if (booking_choice == 'B' || booking_choice == 'b')
+			{
+				int room_number;
+				cout << "Enter the Room number you want to Book: ";
+
+
+				cin >> room_number;
+				if (second_floor_room[room_number - 1] == 0)
+				{
+					cout << "You Booked Room Number " << room_number << " Successfully!" << endl;
+					int{ second_floor_room[room_number - 1] = 1 };
+				}
+				else
+				{
+					cout << "Room Number " << room_number << " is not Free!" << endl;
+					cout << "Please Book any other room: " << endl;
+				}
+
+				if (count_free != 0)
+				{
+					continue;
+				}
+				else
+				{
+					cout << "Sorry! No more Free rooms on Second Floor!\n";
+					cout << "Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+					cout << "_____________________________________________________________________________" << endl;
+					return 1;
+				}
+				cout << endl;
+				cout << "Updated List of rooms on Second Floor: " << endl;
+			}
+
+
+			else
+			{
+				cout << "  Thank You for using\n Management System of\n RESORT OF CENTRAL PUNJAB!" << endl;
+				cout << "_____________________________________________________________________________" << endl;
+				return 1;
+			}
+		} while (count_booked != 10);
+
+	}
+
+	return 0;
+}
